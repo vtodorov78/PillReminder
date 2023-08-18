@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76691A672A8FF86D008019B2 /* SettingsViewController.swift */; };
 		76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AA2A8B8B0B0057C9A5 /* AppDelegate.swift */; };
 		76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AC2A8B8B0B0057C9A5 /* SceneDelegate.swift */; };
 		76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76691A672A8FF86D008019B2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		76B3B1A72A8B8B0B0057C9A5 /* PillReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B3B1AA2A8B8B0B0057C9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B3B1AC2A8B8B0B0057C9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */,
+				76691A672A8FF86D008019B2 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */,
 				76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */,
 				76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */,
+				76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

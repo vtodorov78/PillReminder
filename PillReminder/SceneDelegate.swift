@@ -17,7 +17,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: winScene)
         window?.makeKeyAndVisible()
-        window?.rootViewController = HomeViewController()
+        window?.rootViewController = createTabBar()
+        
+        
+        func createHomeViewController() -> UINavigationController {
+            let homeVC = HomeViewController()
+            homeVC.tabBarItem = UITabBarItem(title: "Medications", image: UIImage(systemName: "pill"), selectedImage: UIImage(systemName: "pill.fill"))
+            return UINavigationController(rootViewController: homeVC)
+        }
+        
+        
+        func createSettingsViewController() -> UINavigationController {
+            let settingsVC = SettingsViewController()
+            settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+            return UINavigationController(rootViewController: settingsVC)
+        }
+        
+        
+        func createTabBar() -> UITabBarController {
+            let tabBar = UITabBarController()
+            UITabBar.appearance().tintColor = .white
+            UITabBar.appearance().isTranslucent = false
+            UITabBar.appearance().backgroundColor = .systemBlue
+            UITabBar.appearance().unselectedItemTintColor = .white
+            tabBar.viewControllers = [createHomeViewController(), createSettingsViewController()]
+            return tabBar
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
