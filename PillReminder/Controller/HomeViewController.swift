@@ -49,6 +49,14 @@ class HomeViewController: UITableViewController {
             sender.isSelected = true
             cell.medication.isMarked = true
         }
+        
+        // delete taken medication
+        let medication = medications[indexPath.row]
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.medications.remove(at: sender.tag)
+            self.tableView.reloadData()
+        }
     }
     
     
