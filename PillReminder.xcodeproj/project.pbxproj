@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76691A672A8FF86D008019B2 /* SettingsViewController.swift */; };
 		76691A6C2A900692008019B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76691A6B2A900692008019B2 /* Extensions.swift */; };
+		7696A9682A993620000D9895 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7696A9672A993620000D9895 /* AddViewController.swift */; };
 		76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AA2A8B8B0B0057C9A5 /* AppDelegate.swift */; };
 		76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AC2A8B8B0B0057C9A5 /* SceneDelegate.swift */; };
 		76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		76691A672A8FF86D008019B2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		76691A6B2A900692008019B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7696A9672A993620000D9895 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		76B3B1A72A8B8B0B0057C9A5 /* PillReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B3B1AA2A8B8B0B0057C9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B3B1AC2A8B8B0B0057C9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */,
+				7696A9672A993620000D9895 /* AddViewController.swift */,
 				76691A672A8FF86D008019B2 /* SettingsViewController.swift */,
 			);
 			path = Controller;
@@ -180,6 +183,7 @@
 			files = (
 				76691A6C2A900692008019B2 /* Extensions.swift in Sources */,
 				76BFA84F2A96A2F30012FCFE /* MedicationCell.swift in Sources */,
+				7696A9682A993620000D9895 /* AddViewController.swift in Sources */,
 				76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */,
 				76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */,
 				76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */,

@@ -10,11 +10,11 @@ import Foundation
 class Medication {
     
     let title: String
-    let amount: String
+    let amount: Int
     let date: Date
     var isMarked = false
     
-    init(title: String, amount: String, date: Date) {
+    init(title: String, amount: Int, date: Date) {
         self.title = title
         self.amount = amount
         self.date = date

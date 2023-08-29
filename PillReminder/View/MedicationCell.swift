@@ -7,14 +7,16 @@
 
 import UIKit
 
+
 class MedicationCell: UITableViewCell {
 
     static let reuseIdentifier = "MedicationCell"
     
+    
      var medication: Medication! {
         didSet {
             titleLabel.text = medication.title
-            amountLabel.text = medication.amount
+            amountLabel.text = "\(medication.amount) mg"
             let date = medication.date
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "us")
@@ -52,7 +54,7 @@ class MedicationCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
-    
+
     let checkmarkButton: UIButton = {
         let button = UIButton()
         let checkmarkImage = UIImage(named: "tick")
@@ -79,7 +81,7 @@ class MedicationCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     
     // MARK: - Helper Functions
     
@@ -100,10 +102,10 @@ class MedicationCell: UITableViewCell {
         stack1.axis = .horizontal
         stack1.distribution = .equalSpacing
         stack1.spacing = 10
-        stack1.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 20, paddingBottom: 10, paddingRight: 0, width: 0, height: self.frame.height/2)
+        stack1.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 20, paddingBottom: 8, paddingRight: 0, width: 0, height: self.frame.height/2.5)
         
         addSubview(checkmarkButton)
-        checkmarkButton.anchor(top: topAnchor, left: nil, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 15, paddingBottom: 15, paddingRight: 15, width: self.frame.width/8, height: 0)
+        checkmarkButton.anchor(top: topAnchor, left: nil, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 15, paddingRight: 25, width: self.frame.width/8, height: 0)
         checkmarkButton.backgroundColor = .white
     }
 }
