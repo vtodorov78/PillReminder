@@ -78,7 +78,6 @@ class AddViewController: UIViewController {
         view.backgroundColor = .lightGray
         
         title = "New Medication"
-        titleField.becomeFirstResponder()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
         navigationController?.navigationBar.tintColor = .white

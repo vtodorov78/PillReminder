@@ -23,13 +23,17 @@ class HomeViewController: UITableViewController {
         // show addVC
         let addVC = AddViewController()
         addVC.completion = { [weak self] title, amount, date in
+            
+            let newMedication = Medication(title: title, amount: amount, date: date)
+            self?.medications.append(newMedication)
+            
             DispatchQueue.main.async {
-                let newMedication = Medication(title: title, amount: amount, date: date)
-                self?.medications.append(newMedication)
                 self?.tableView.reloadData()
             }
         }
-        navigationController?.pushViewController(addVC, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(addVC, animated: true)
+        }
     }
 
     
@@ -93,6 +97,21 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            tableView.beginUpdates()
+            medications.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
     }
 }
 
