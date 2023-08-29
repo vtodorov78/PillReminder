@@ -22,6 +22,7 @@ class HomeViewController: UITableViewController {
     @objc func addMedicationButtonPressed() {
         // show addVC
         let addVC = AddViewController()
+        
         addVC.completion = { [weak self] title, amount, date in
             
             let newMedication = Medication(title: title, amount: amount, date: date)
@@ -32,6 +33,7 @@ class HomeViewController: UITableViewController {
             }
         }
         DispatchQueue.main.async {
+            addVC.titleField.becomeFirstResponder()
             self.navigationController?.pushViewController(addVC, animated: true)
         }
     }
@@ -51,7 +53,6 @@ class HomeViewController: UITableViewController {
         }
         
         // delete taken medication
-        let medication = medications[indexPath.row]
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.medications.remove(at: sender.tag)
@@ -95,6 +96,7 @@ extension HomeViewController {
         return medications.count
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicationCell.reuseIdentifier, for: indexPath) as? MedicationCell else { return UITableViewCell() }
         let medication = medications[indexPath.row]
@@ -103,13 +105,26 @@ extension HomeViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let infoVC = InfoViewController()
+        infoVC.delegate = self
+        infoVC.modalPresentationStyle = .automatic
+        infoVC.medicationTitle = medications[indexPath.row].title
+        infoVC.medicationDosage = medications[indexPath.row].amount
+        infoVC.medicationDate = medications[indexPath.row].date
+        self.present(infoVC, animated: true)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
+    
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
+    
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -121,5 +136,27 @@ extension HomeViewController {
             tableView.endUpdates()
         }
     }
+}
+
+extension HomeViewController: InfoViewDelegate {
+    
+    func takeMedication() {
+        let indexPath = tableView.indexPathForSelectedRow
+        medications.remove(at: indexPath!.row)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func deleteMedication() {
+        let indexPath = tableView.indexPathForSelectedRow
+        medications.remove(at: indexPath!.row)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 

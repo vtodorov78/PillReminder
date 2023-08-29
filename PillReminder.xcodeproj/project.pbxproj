@@ -17,6 +17,9 @@
 		76B3B1B72A8B8B0D0057C9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B3B1B52A8B8B0D0057C9A5 /* LaunchScreen.storyboard */; };
 		76BFA84B2A96A0620012FCFE /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BFA84A2A96A0620012FCFE /* Medication.swift */; };
 		76BFA84F2A96A2F30012FCFE /* MedicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */; };
+		76DC9B582A9E963F00D45C7C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B572A9E963F00D45C7C /* InfoViewController.swift */; };
+		76DC9B5A2A9E96AE00D45C7C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B592A9E96AE00D45C7C /* InfoCell.swift */; };
+		76DC9B5C2A9E972D00D45C7C /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		76B3B1B82A8B8B0D0057C9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76BFA84A2A96A0620012FCFE /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCell.swift; sourceTree = "<group>"; };
+		76DC9B572A9E963F00D45C7C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		76DC9B592A9E96AE00D45C7C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				76BFA84A2A96A0620012FCFE /* Medication.swift */,
+				76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -66,6 +73,7 @@
 			children = (
 				76B3B1B52A8B8B0D0057C9A5 /* LaunchScreen.storyboard */,
 				76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */,
+				76DC9B592A9E96AE00D45C7C /* InfoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -76,6 +84,7 @@
 				76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */,
 				7696A9672A993620000D9895 /* AddViewController.swift */,
 				76691A672A8FF86D008019B2 /* SettingsViewController.swift */,
+				76DC9B572A9E963F00D45C7C /* InfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,13 +191,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				76691A6C2A900692008019B2 /* Extensions.swift in Sources */,
+				76DC9B5C2A9E972D00D45C7C /* InfoSection.swift in Sources */,
 				76BFA84F2A96A2F30012FCFE /* MedicationCell.swift in Sources */,
 				7696A9682A993620000D9895 /* AddViewController.swift in Sources */,
 				76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */,
+				76DC9B582A9E963F00D45C7C /* InfoViewController.swift in Sources */,
 				76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */,
 				76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */,
 				76BFA84B2A96A0620012FCFE /* Medication.swift in Sources */,
 				76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */,
+				76DC9B5A2A9E96AE00D45C7C /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
