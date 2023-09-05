@@ -37,6 +37,9 @@ class HomeViewController: UITableViewController {
         // show addVC
         let addVC = AddViewController()
         
+        self.navigationController?.pushViewController(addVC, animated: true)
+        addVC.titleField.becomeFirstResponder()
+        
         addVC.completion = { [weak self] title, amount, date in
             
             let newMedication = Medication(title: title, amount: amount, date: date)
@@ -45,11 +48,6 @@ class HomeViewController: UITableViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-        }
-
-        DispatchQueue.main.async {
-            addVC.titleField.becomeFirstResponder()
-            self.navigationController?.pushViewController(addVC, animated: true)
         }
     }
     
@@ -188,6 +186,32 @@ extension HomeViewController: InfoViewDelegate {
         }
         
         animateNotificationBanner(view: bannerView, banner: showSuccessNotificationBanner)
+    }
+    
+    func editMedication() {
+        
+        let indexPath = tableView.indexPathForSelectedRow
+        let medication = medications[indexPath!.row]
+        
+        let addVC = AddViewController()
+        
+        self.navigationController?.pushViewController(addVC, animated: true)
+        
+        addVC.titleField.text = medication.title
+        addVC.amountField.text = "\(medication.amount)"
+        addVC.datePicker.date = medication.date
+        
+        addVC.titleField.becomeFirstResponder()
+        
+        addVC.completion = { [weak self] title, amount, date in
+            
+            let editedMedication = Medication(title: title, amount: amount, date: date)
+            self?.medications[indexPath!.row] = editedMedication
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     func deleteMedication() {

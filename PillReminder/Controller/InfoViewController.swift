@@ -9,6 +9,7 @@ import UIKit
 
 protocol InfoViewDelegate {
     func takeMedication()
+    func editMedication()
     func deleteMedication()
 }
 
@@ -49,6 +50,11 @@ class InfoViewController: UIViewController {
     
     func handleTakeMedication() {
         delegate?.takeMedication()
+        self.dismiss(animated: true)
+    }
+    
+    func handleEditMedication() {
+        delegate?.editMedication()
         self.dismiss(animated: true)
     }
     
@@ -152,6 +158,10 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
             
             if option?.description == "Take medication" {
                 handleTakeMedication()
+            }
+            
+            if option?.description == "Edit" {
+                handleEditMedication()
             }
             
             if option?.description == "Delete" {
