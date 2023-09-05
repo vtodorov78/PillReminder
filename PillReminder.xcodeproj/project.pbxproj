@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76243E272AA0CDA6004E4D9B /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76243E262AA0CDA6004E4D9B /* BannerView.swift */; };
 		76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76691A672A8FF86D008019B2 /* SettingsViewController.swift */; };
 		76691A6C2A900692008019B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76691A6B2A900692008019B2 /* Extensions.swift */; };
 		7696A9682A993620000D9895 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7696A9672A993620000D9895 /* AddViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76243E262AA0CDA6004E4D9B /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		76691A672A8FF86D008019B2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		76691A6B2A900692008019B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7696A9672A993620000D9895 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				76B3B1B52A8B8B0D0057C9A5 /* LaunchScreen.storyboard */,
 				76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */,
 				76DC9B592A9E96AE00D45C7C /* InfoCell.swift */,
+				76243E262AA0CDA6004E4D9B /* BannerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				76DC9B582A9E963F00D45C7C /* InfoViewController.swift in Sources */,
 				76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */,
 				76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */,
+				76243E272AA0CDA6004E4D9B /* BannerView.swift in Sources */,
 				76BFA84B2A96A0620012FCFE /* Medication.swift in Sources */,
 				76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */,
 				76DC9B5A2A9E96AE00D45C7C /* InfoCell.swift in Sources */,
