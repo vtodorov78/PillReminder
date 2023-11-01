@@ -76,8 +76,7 @@ class HomeViewController: UITableViewController {
     }
     
     
-    // MARK: - Helper Functionsz
-    
+    // MARK: - Helper Functions
     
     func showSuccessNotificationBanner() {
         bannerView.label.text = "Medication is taken."

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AddViewController: UIViewController {
     
@@ -63,8 +64,10 @@ class AddViewController: UIViewController {
             let targetDate = datePicker.date
             
             guard let amount = Int(amountText) else { return }
-        
+
             completion?(titleText, amount, targetDate)
+            
+            self.dispatchNotification(title: titleText, amount: amountText, date: targetDate)
             
             navigationController?.popToRootViewController(animated: true)
             
@@ -72,6 +75,30 @@ class AddViewController: UIViewController {
     }
     
     // MARK: - Helper Functions
+    
+    func dispatchNotification(title: String, amount: String, date: Date) {
+        let identifier = title
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        
+        content.title = title
+        content.body = "\(amount) mg"
+        content.sound = .default
+        
+        let fireDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { error in
+            
+            if error != nil {
+                print("Error = \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
     
     
     func configureViewComponents() {
