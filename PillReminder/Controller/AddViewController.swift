@@ -20,6 +20,8 @@ class AddViewController: UIViewController {
         textField.textColor = .black
         textField.layer.cornerRadius = 10
         textField.backgroundColor = .white
+        textField.layer.borderWidth = 0.2
+        textField.layer.borderColor = UIColor.gray.cgColor
         textField.setLeftPaddingPoints(10)
         return textField
     }()
@@ -30,6 +32,8 @@ class AddViewController: UIViewController {
         textField.textColor = .black
         textField.layer.cornerRadius = 10
         textField.backgroundColor = .white
+        textField.layer.borderWidth = 0.2
+        textField.layer.borderColor = UIColor.gray.cgColor
         textField.setLeftPaddingPoints(10)
         return textField
     }()
@@ -102,7 +106,7 @@ class AddViewController: UIViewController {
     
     
     func configureViewComponents() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemGroupedBackground
         
         title = "New Medication"
         

@@ -119,7 +119,7 @@ class HomeViewController: UITableViewController {
         tableView.register(MedicationCell.self, forCellReuseIdentifier: MedicationCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .systemGroupedBackground
     }
 }
 
