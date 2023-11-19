@@ -22,6 +22,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         
         configureViewComponents()
+        fetchMedications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +43,7 @@ class HomeViewController: UITableViewController {
         
         addVC.completion = { [weak self] title, amount, date in
             
-            let newMedication = Medication(title: title, amount: amount, date: date)
+            let newMedication = CoreDataManager.shared.createMedication(title: title, amount: amount, Date: date)
             self?.medications.append(newMedication)
             
             DispatchQueue.main.async {
@@ -56,6 +57,7 @@ class HomeViewController: UITableViewController {
         
         let indexPath = IndexPath(row: sender.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! MedicationCell
+        let medication = cell.medication!
         
         if sender.isSelected {
             sender.isSelected = false
@@ -71,12 +73,26 @@ class HomeViewController: UITableViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.medications.remove(at: sender.tag)
+            CoreDataManager.shared.delete(medication: medication)
             self.tableView.reloadData()
         }
     }
     
     
     // MARK: - Helper Functions
+    
+    func fetchMedications() {
+        do {
+            medications = try CoreDataManager.shared.context.fetch(Medication.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch {
+            print("Error occured while fetching data: \(error.localizedDescription)")
+        }
+    }
     
     func showSuccessNotificationBanner() {
         bannerView.label.text = "Medication is taken."
@@ -144,7 +160,7 @@ extension HomeViewController {
         infoVC.delegate = self
         infoVC.modalPresentationStyle = .automatic
         infoVC.medicationTitle = medications[indexPath.row].title
-        infoVC.medicationDosage = medications[indexPath.row].amount
+        infoVC.medicationDosage = Int(medications[indexPath.row].amount)
         infoVC.medicationDate = medications[indexPath.row].date
         self.present(infoVC, animated: true)
     }
@@ -162,10 +178,13 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        let medication = medications[indexPath.row]
+        
         if editingStyle == .delete {
             
             tableView.beginUpdates()
             medications.remove(at: indexPath.row)
+            CoreDataManager.shared.delete(medication: medication)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             
@@ -178,7 +197,11 @@ extension HomeViewController: InfoViewDelegate {
     
     func takeMedication() {
         let indexPath = tableView.indexPathForSelectedRow
+        let medication = medications[indexPath!.row]
+    
         medications.remove(at: indexPath!.row)
+        CoreDataManager.shared.delete(medication: medication)
+        
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -204,8 +227,10 @@ extension HomeViewController: InfoViewDelegate {
         
         addVC.completion = { [weak self] title, amount, date in
             
-            let editedMedication = Medication(title: title, amount: amount, date: date)
-            self?.medications[indexPath!.row] = editedMedication
+            CoreDataManager.shared.update(medication: medication, newTitle: title, newAmount: amount, newDate: date)
+            self?.medications[indexPath!.row] = medication
+            
+            self?.fetchMedications()
             
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -215,7 +240,11 @@ extension HomeViewController: InfoViewDelegate {
     
     func deleteMedication() {
         let indexPath = tableView.indexPathForSelectedRow
+        let medication = medications[indexPath!.row]
+        
         medications.remove(at: indexPath!.row)
+        CoreDataManager.shared.delete(medication: medication)
+        
         
         DispatchQueue.main.async {
             self.tableView.reloadData()

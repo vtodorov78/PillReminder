@@ -17,8 +17,10 @@
 		76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B3B1AE2A8B8B0B0057C9A5 /* HomeViewController.swift */; };
 		76B3B1B42A8B8B0D0057C9A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B3B1B32A8B8B0D0057C9A5 /* Assets.xcassets */; };
 		76B3B1B72A8B8B0D0057C9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B3B1B52A8B8B0D0057C9A5 /* LaunchScreen.storyboard */; };
-		76BFA84B2A96A0620012FCFE /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BFA84A2A96A0620012FCFE /* Medication.swift */; };
 		76BFA84F2A96A2F30012FCFE /* MedicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */; };
+		76C06DD62B0A9A9A00432997 /* Medication+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C06DD42B0A9A9A00432997 /* Medication+CoreDataClass.swift */; };
+		76C06DD72B0A9A9A00432997 /* Medication+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C06DD52B0A9A9A00432997 /* Medication+CoreDataProperties.swift */; };
+		76C06DD92B0A9BA900432997 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C06DD82B0A9BA900432997 /* CoreDataManager.swift */; };
 		76DC9B582A9E963F00D45C7C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B572A9E963F00D45C7C /* InfoViewController.swift */; };
 		76DC9B5A2A9E96AE00D45C7C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B592A9E96AE00D45C7C /* InfoCell.swift */; };
 		76DC9B5C2A9E972D00D45C7C /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */; };
@@ -37,8 +39,10 @@
 		76B3B1B32A8B8B0D0057C9A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76B3B1B62A8B8B0D0057C9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76B3B1B82A8B8B0D0057C9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76BFA84A2A96A0620012FCFE /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		76BFA84E2A96A2F30012FCFE /* MedicationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCell.swift; sourceTree = "<group>"; };
+		76C06DD42B0A9A9A00432997 /* Medication+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+CoreDataClass.swift"; sourceTree = "<group>"; };
+		76C06DD52B0A9A9A00432997 /* Medication+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		76C06DD82B0A9BA900432997 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		76DC9B572A9E963F00D45C7C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		76DC9B592A9E96AE00D45C7C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
@@ -66,8 +70,10 @@
 		76A92BAD2A8C1AA4004EB9EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				76BFA84A2A96A0620012FCFE /* Medication.swift */,
+				76C06DD42B0A9A9A00432997 /* Medication+CoreDataClass.swift */,
+				76C06DD52B0A9A9A00432997 /* Medication+CoreDataProperties.swift */,
 				76DC9B5B2A9E972D00D45C7C /* InfoSection.swift */,
+				76C06DD82B0A9BA900432997 /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,7 +160,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					76B3B1A62A8B8B0B0057C9A5 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -199,14 +205,16 @@
 				76691A6C2A900692008019B2 /* Extensions.swift in Sources */,
 				76DC9B5C2A9E972D00D45C7C /* InfoSection.swift in Sources */,
 				76BFA84F2A96A2F30012FCFE /* MedicationCell.swift in Sources */,
+				76C06DD92B0A9BA900432997 /* CoreDataManager.swift in Sources */,
 				7696A9682A993620000D9895 /* AddViewController.swift in Sources */,
 				76B3B1AF2A8B8B0B0057C9A5 /* HomeViewController.swift in Sources */,
+				76C06DD72B0A9A9A00432997 /* Medication+CoreDataProperties.swift in Sources */,
 				76DC9B582A9E963F00D45C7C /* InfoViewController.swift in Sources */,
 				76B3B1AB2A8B8B0B0057C9A5 /* AppDelegate.swift in Sources */,
 				76B3B1AD2A8B8B0B0057C9A5 /* SceneDelegate.swift in Sources */,
 				76243E272AA0CDA6004E4D9B /* BannerView.swift in Sources */,
-				76BFA84B2A96A0620012FCFE /* Medication.swift in Sources */,
 				764B77312B0A34B600149C65 /* Data.xcdatamodeld in Sources */,
+				76C06DD62B0A9A9A00432997 /* Medication+CoreDataClass.swift in Sources */,
 				76691A682A8FF86D008019B2 /* SettingsViewController.swift in Sources */,
 				76DC9B5A2A9E96AE00D45C7C /* InfoCell.swift in Sources */,
 			);
@@ -262,6 +270,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -322,6 +331,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
